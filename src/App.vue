@@ -7,10 +7,10 @@ import 'ant-design-vue/dist/antd.css';
     <MainLayout></MainLayout>
 </template>
 
-<style>
+<style >
 body {
-    background: no-repeat center center
-        url("https://wx1.sinaimg.cn/mw2048/002mJpQTly1gurokkhkgoj62tc240kjm02.jpg");
+    background: no-repeat center center;
+    background-image: url("./assets/background.jpg");
     background-size: cover;
     background-attachment: fixed;
 }
