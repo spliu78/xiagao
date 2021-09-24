@@ -9,7 +9,8 @@ import 'ant-design-vue/dist/antd.css';
 
 <style>
 body {
-    background: no-repeat center center url("/background.jpg");
+    background: no-repeat center center
+        url("https://wx1.sinaimg.cn/large/002mJpQTly1gurokkhkgoj62tc240kjm02.jpg");
     background-size: cover;
     background-attachment: fixed;
 }
