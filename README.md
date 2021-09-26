@@ -1,6 +1,6 @@
 # 虾糕.space!
 
-http://xiaogao.space
+http://xiagao.space
 
 总之我先放一块虾糕在这里 ( ´ρ`)
 
