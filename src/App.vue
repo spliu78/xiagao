@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import MainLayout from './components/MainLayout.vue';
-import 'ant-design-vue/dist/antd.css';
 </script>
 
 <template>
