@@ -3,8 +3,9 @@
     "version": "0.0.0",
     "scripts": {
         "dev": "vite",
-        "build": "vue-tsc --noEmit && vite build && anywhere --port=3223 -d dist/",
-        "serve": "vite preview"
+        "build": "vue-tsc --noEmit && vite build",
+        "serve": "vite preview",
+        "check": "anywhere --port=3223 -d dist/"
     },
     "dependencies": {
         "ant-design-vue": "^2.2.8",
