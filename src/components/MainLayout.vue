@@ -16,8 +16,7 @@
             style="padding: 0 50px; margin:16px 0; min-height: 800px;"
             class="content"
         >
-            <Spin v-if="!docs.length" />
-            <Markdown v-for="item in docs" :url="item"></Markdown>
+            <Markers v-for="item in mds" :md="item" />
         </a-layout-content>
         <a-layout-footer
             class="footer"
@@ -28,23 +27,17 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import Markdown from './Markdown.vue';
-import Spin from './Spin.vue';
 import moment from 'moment';
-const selectedKeys = ref<string[]>(['1']);
-const docs = ref<string[]>([]);
+import Markers from './Markers.vue';
 
-(async () => {
-    // get docs
-    const { articles } = (await fetch('/markdown/article.json')
-        .then(res => res.json())) as { articles: Array<article> };
-    docs.value = articles.map(({ url }: { url: string }) => url);
-    // console.log(docs.value);
-})();
+const selectedKeys = ref<string[]>(['1']);
+const mds = [
+    import('../markdown/HeadFirst.md')
+];
 
 </script>
 
-<style>
+<style lang="scss">
 .ant-layout.layout {
     max-width: 960px;
     background: hsla(0, 0%, 100%, 0.3);
@@ -64,5 +57,192 @@ const docs = ref<string[]>([]);
     padding: 0 8px;
     line-height: 24px;
     letter-spacing: 5px;
+}
+.markdown-body {
+    background-color: #fff;
+    padding: 24px;
+    margin: 40px 0;
+
+    text-align: left;
+
+    @media print {
+        *,
+        *:before,
+        *:after {
+            background: transparent !important;
+            color: #000 !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+
+        a,
+        a:visited {
+            text-decoration: underline;
+        }
+
+        a[href]:after {
+            content: " (" attr(href) ")";
+        }
+
+        abbr[title]:after {
+            content: " (" attr(title) ")";
+        }
+
+        a[href^="#"]:after,
+        a[href^="javascript:"]:after {
+            content: "";
+        }
+
+        pre,
+        blockquote {
+            border: 1px solid #999;
+            page-break-inside: avoid;
+        }
+
+        thead {
+            display: table-header-group;
+        }
+
+        tr,
+        img {
+            page-break-inside: avoid;
+        }
+
+        img {
+            max-width: 100% !important;
+        }
+
+        p,
+        h2,
+        h3 {
+            orphans: 3;
+            widows: 3;
+        }
+
+        h2,
+        h3 {
+            page-break-after: avoid;
+        }
+    }
+
+    pre,
+    code {
+        font-family: Menlo, Monaco, "Courier New", monospace;
+    }
+
+    pre {
+        padding: 0.5rem;
+        line-height: 1.25;
+        overflow-x: scroll;
+    }
+
+    a,
+    a:visited {
+        color: #3498db;
+    }
+
+    a:hover,
+    a:focus,
+    a:active {
+        color: #2980b9;
+    }
+
+    .modest-no-decoration {
+        text-decoration: none;
+    }
+
+    p,
+    .modest-p {
+        font-size: 1rem;
+        margin-bottom: 1.3rem;
+    }
+
+    h1,
+    .modest-h1,
+    h2,
+    .modest-h2,
+    h3,
+    .modest-h3,
+    h4,
+    .modest-h4 {
+        margin: 1.414rem 0 0.5rem;
+        font-weight: inherit;
+        line-height: 1.42;
+    }
+
+    h1,
+    .modest-h1 {
+        margin-top: 0;
+        font-size: 3.998rem;
+    }
+
+    h2,
+    .modest-h2 {
+        font-size: 2.827rem;
+    }
+
+    h3,
+    .modest-h3 {
+        font-size: 1.999rem;
+    }
+
+    h4,
+    .modest-h4 {
+        font-size: 1.414rem;
+    }
+
+    h5,
+    .modest-h5 {
+        font-size: 1.121rem;
+    }
+
+    h6,
+    .modest-h6 {
+        font-size: 0.88rem;
+    }
+
+    small,
+    .modest-small {
+        font-size: 0.707em;
+    }
+
+    /* https://github.com/mrmrs/fluidity */
+
+    img,
+    canvas,
+    iframe,
+    video,
+    svg,
+    select,
+    textarea {
+        max-width: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: Arimo, Helvetica, sans-serif;
+    }
+
+    h1,
+    h2,
+    h3 {
+        border-bottom: 2px solid #fafafa;
+        margin-bottom: 1.15rem;
+        padding-bottom: 0.5rem;
+    }
+
+    blockquote {
+        border-left: 8px solid #fafafa;
+        padding: 1rem;
+    }
+
+    pre,
+    code {
+        background-color: #fafafa;
+    }
 }
 </style>

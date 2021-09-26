@@ -6,4 +6,4 @@
 
 下面有请波波茶茶(●´З｀●)
 
-<image src="https://wx1.sinaimg.cn/mw690/002mJpQTly1guroljdd9wj637k4tce8302.jpg" width=400/>
+<img src="https://wx1.sinaimg.cn/mw690/002mJpQTly1guroljdd9wj637k4tce8302.jpg" style="width:400px"/>
