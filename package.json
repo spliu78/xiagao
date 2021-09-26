@@ -5,11 +5,10 @@
         "dev": "vite",
         "build": "vue-tsc --noEmit && vite build",
         "serve": "vite preview",
-        "check": "npm run build && anywhere --port=3223 -d dist/"
+        "check": "npm run build --analysis && anywhere --port=3223 -d dist/"
     },
     "dependencies": {
         "ant-design-vue": "^2.2.8",
-        "moment": "^2.29.1",
         "showdown": "^1.9.1",
         "vite-plugin-md": "^0.11.1",
         "vue": "^3.2.6"
@@ -17,10 +16,12 @@
     "devDependencies": {
         "@commitlint/cli": "^13.1.0",
         "@commitlint/config-conventional": "^13.1.0",
+        "@types/node": "^16.10.1",
         "@types/showdown": "^1.9.4",
         "@vitejs/plugin-vue": "^1.6.1",
         "@vue/compiler-sfc": "^3.2.6",
         "husky": "^7.0.2",
+        "rollup-plugin-visualizer": "^5.5.2",
         "sass": "^1.41.1",
         "typescript": "^4.3.2",
         "unplugin-vue-components": "^0.15.2",

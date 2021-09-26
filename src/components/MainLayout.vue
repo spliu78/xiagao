@@ -21,14 +21,14 @@
         <a-layout-footer
             class="footer"
             style="text-align: center"
-        >Xiagao ©{{ moment().format('yyyy') }}</a-layout-footer>
+        >Xiagao ©{{ dateFormat('yyyy', new Date()) }}</a-layout-footer>
     </a-layout>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import moment from 'moment';
 import Markers from './Markers.vue';
+import { dateFormat } from '../util';
 
 const selectedKeys = ref<string[]>(['1']);
 const mds = [
