@@ -9,7 +9,7 @@ import MainLayout from './components/MainLayout.vue';
 <style >
 body {
     background: no-repeat center center;
-    background-image: url("./assets/background.jpg");
+    background-image: url("./assets/watermark.jpg");
     background-size: cover;
     background-attachment: fixed;
 }
