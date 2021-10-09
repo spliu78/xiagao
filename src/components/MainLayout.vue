@@ -18,10 +18,14 @@
         >
             <Markers v-for="item in mds" :md="item" />
         </a-layout-content>
-        <a-layout-footer
-            class="footer"
-            style="text-align: center"
-        >Xiagao ©{{ dateFormat('yyyy', new Date()) }}</a-layout-footer>
+        <a-layout-footer class="footer" style="text-align: center">
+            Xiagao ©{{ dateFormat('yyyy', new Date()) }}
+            <a
+                target="_blank"
+                href="https://beian.miit.gov.cn/"
+                style="color: rgba(0, 0, 0, 0.85);display: block;"
+            >备案号：京ICP备2021030795号-1</a>
+        </a-layout-footer>
     </a-layout>
 </template>
 
