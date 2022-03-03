@@ -21,6 +21,9 @@ if (process.env.npm_config_analysis) {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    server: {
+        port: 3090
+    },
     plugins: [
         vue({
             include: [/\.vue$/, /\.md$/],

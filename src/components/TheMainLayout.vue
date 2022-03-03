@@ -12,12 +12,17 @@
                 :style="{ lineHeight: '64px' }"
             ></a-menu>
         </a-layout-header>
-        <a-layout-content
-            style="padding: 0 50px; margin:16px 0; min-height: 800px;"
-            class="content"
-        >
-            <Markers v-for="item in mds" :md="item" />
-        </a-layout-content>
+        <a-row>
+            <a-col
+                :xs="{ span: 20, offset: 2 }"
+                :sm="{ span: 16, offset: 4 }"
+                :lg="{ span: 12, offset: 6 }"
+                style="background: hsla(0, 0%, 100%, 0.3); padding: 0 5%;"
+            >
+                <MarkdownAsync class="cell" :md="top_markdown" />
+                <TheWeibo class="cell" />
+            </a-col>
+        </a-row>
         <a-layout-footer class="footer" style="text-align: center">
             Xiagao ©{{ dateFormat('yyyy', new Date()) }}
             <a
@@ -31,21 +36,22 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import Markers from './Markers.vue';
+import MarkdownAsync from './MarkdownAsync.vue';
+import TheWeibo from './TheWeibo.vue';
 import { dateFormat } from '../util';
 
 const selectedKeys = ref<string[]>(['1']);
-const mds = [
-    import('../markdown/HeadFirst.md')
-];
+const top_markdown = import('../markdown/HeadFirst.md');
 
 </script>
 
 <style lang="scss">
 .ant-layout.layout {
-    max-width: 960px;
-    background: hsla(0, 0%, 100%, 0.3);
+    width: 100%;
+    background: none;
+    // background: hsla(0, 0%, 100%, 0.3);
 }
+
 .ant-layout-footer.footer {
     background: hsla(0, 0%, 100%, 0.6);
 }
@@ -62,11 +68,12 @@ const mds = [
     line-height: 24px;
     letter-spacing: 5px;
 }
-.markdown-body {
+.cell {
     background-color: #fff;
     padding: 24px;
     margin: 40px 0;
-
+}
+.markdown-body {
     text-align: left;
 
     @media print {

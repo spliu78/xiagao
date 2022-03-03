@@ -1,15 +1,15 @@
 <template>
-    <Marker />
+    <MarkerAsync />
 </template>
 <script lang="ts" setup>
-import Spin from './Spin.vue';
+import BaseSpin from './BaseSpin.vue';
 import { defineAsyncComponent } from 'vue';
 interface MarkerProps {
     md: Promise<any>
 }
 const props = defineProps<MarkerProps>();
-const Marker = defineAsyncComponent({
+const MarkerAsync = defineAsyncComponent({
     loader: () => props.md,
-    loadingComponent: Spin
+    loadingComponent: BaseSpin
 });
 </script>
